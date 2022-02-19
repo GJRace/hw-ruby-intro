@@ -1,3 +1,5 @@
+# When done, submit this entire file to the autograder
+
 # Part 1
 
 def sum(array)
@@ -22,21 +24,8 @@ def max_2_sum(array)
   return (sarray[-1]+sarray[-2])
 end
 
-def sum_to_n?(array, n)
-  return false if array.empty?
-  
-  h=Hash.new
-  array.each{|x|
-    if h.key? x
-      return true
-    else
-      h[n-x]=n
-    end
-
-  }
-
-return false
-
+def sum_to_n? arr, n
+  # YOUR CODE HERE
 end
 
 # Part 2
