@@ -1,7 +1,7 @@
 require 'rock_paper_scissors'
 require 'byebug'
 
-describe RockPaperScissors, :pending => true do
+describe RockPaperScissors do
   before(:each) do
     @rock = ['Armando','R'] ; @paper = ['Dave','P'] ; @scissors = ['Sam','S']
   end
@@ -38,6 +38,27 @@ describe RockPaperScissors, :pending => true do
         ]
       ]
       expect(RockPaperScissors.tournament_winner(tourney)).to eq(['Richard', 'R'])
+    end
+    it 'recursive case2' do
+      tourney = [
+        [
+        [ ["Allen", "S"], ["Omer", "P"] ],
+        [ ["David", "R"], ["Richard", "P"]],
+        ],
+        [
+        [  ["Kristen", "P"], ["Ben", "S"] ],
+        [ ["Justin", "R"], ["Walter", "S"] ]
+        ],
+        [
+        [  ["Person1", "P"], ["Person5", "S"] ],
+        [ ["Person2", "R"], ["Person6", "S"] ]
+        ],
+        [
+        [  ["Person3", "P"], ["Person7", "S"] ],
+        [ ["Person4", "R"], ["Person8", "S"] ]
+        ] 
+        ]
+      expect(RockPaperScissors.tournament_winner(tourney)).to eq(["Justin", "R"],)
     end
   end
 end
