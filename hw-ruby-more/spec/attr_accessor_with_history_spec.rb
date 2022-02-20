@@ -8,7 +8,7 @@ class TestClass2
   attr_accessor_with_history 'foo'
 end
 
-describe '([10 points] Extra Credit)', :pending => true do
+describe '([10 points] Extra Credit)' do
   shared_examples 'all cases' do
     it 'should define getter and setter' do
       @subject.foo = 'xyz'
@@ -30,6 +30,14 @@ describe '([10 points] Extra Credit)', :pending => true do
       @subject.foo = 3
       @subject.foo = 'x'
       expect(@subject.foo_history).to eq([nil, 3])
+    end
+    it 'should remember values' do
+      @subject.foo
+      @subject.foo = 10
+      @subject.foo = 'y'
+      @subject.foo = 12
+      @subject.foo = 'x'
+      expect(@subject.foo_history).to eq([nil, 10, 'y', 12])
     end
   end
   describe 'when a symbol is passed' do
